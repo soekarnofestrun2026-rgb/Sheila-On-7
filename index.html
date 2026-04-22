@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -13,51 +14,51 @@ body{
     color:#fff;
 }
 
-/* HERO FULL POSTER */
+/* HERO POSTER */
 .hero{
     height:100vh;
     background:url('poster.jpg') center/cover no-repeat;
     position:relative;
     display:flex;
-    align-items:center;
+    align-items:flex-end;
     justify-content:center;
     text-align:center;
 }
 
-/* overlay biar teks kebaca */
+/* overlay biar teks jelas */
 .hero::before{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+    background:linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2));
 }
 
 /* CONTENT */
 .hero-content{
     position:relative;
     z-index:2;
+    padding:30px 20px;
     max-width:600px;
-    padding:20px;
-    animation:fadeIn 1.5s ease;
+    width:100%;
+    animation:fadeIn 1.2s ease;
 }
 
 .hero h1{
-    font-size:42px;
-    margin-bottom:10px;
+    font-size:36px;
     color:#ff3c00;
+    margin-bottom:10px;
 }
 
 .hero p{
-    margin:6px 0;
-    font-size:16px;
+    font-size:15px;
+    margin:5px 0;
 }
 
-/* DATE BADGE */
+/* BADGE */
 .badge{
     display:inline-block;
     background:#22c55e;
-    color:#fff;
-    padding:8px 14px;
+    padding:6px 12px;
     border-radius:8px;
     margin:10px 0;
     font-weight:bold;
@@ -65,35 +66,36 @@ body{
 
 /* BUTTON */
 .btn{
-    margin-top:20px;
-    padding:14px 30px;
+    margin-top:15px;
+    padding:14px 25px;
     border:none;
-    border-radius:12px;
+    border-radius:10px;
     background:#ff3c00;
     color:#fff;
-    font-size:16px;
+    font-size:15px;
     cursor:pointer;
     transition:.3s;
+    width:100%;
 }
 
 .btn:hover{
-    transform:scale(1.05);
+    transform:scale(1.03);
     background:#ff5722;
 }
 
-/* INFO SECTION */
+/* SECTION */
 .section{
-    padding:50px 20px;
-    text-align:center;
+    padding:40px 20px;
     background:#111;
+    text-align:center;
 }
 
 .card{
     background:#1e293b;
-    padding:25px;
-    border-radius:15px;
+    padding:20px;
+    border-radius:12px;
     max-width:500px;
-    margin:20px auto;
+    margin:auto;
 }
 
 /* FOOTER */
@@ -142,6 +144,8 @@ body{
         <p><b>Tanggal:</b> 04 Juli 2026</p>
         <p><b>Promotor:</b> LetraLive</p>
     </div>
+
+    <br>
 
     <button class="btn" onclick="buyTicket()">Beli Tiket</button>
 </section>
