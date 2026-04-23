@@ -13,7 +13,7 @@ body{
     color:#fff;
 }
 
-/* HERO POSTER */
+/* HERO */
 .hero{
     height:100vh;
     background:url('poster.jpg') center/cover no-repeat;
@@ -24,7 +24,6 @@ body{
     text-align:center;
 }
 
-/* overlay biar teks jelas */
 .hero::before{
     content:"";
     position:absolute;
@@ -61,6 +60,29 @@ body{
     border-radius:8px;
     margin:10px 0;
     font-weight:bold;
+}
+
+/* COUNTDOWN */
+.countdown{
+    margin-top:12px;
+    font-size:14px;
+    color:#facc15;
+}
+
+/* PROGRESS */
+.progress-container{
+    margin-top:12px;
+    width:100%;
+    background:#333;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:10px;
+    width:0%;
+    background:#ff3c00;
+    transition:width 2s ease;
 }
 
 /* BUTTON */
@@ -126,6 +148,19 @@ body{
         <p>📍 Bali United Training Center</p>
         <p>🎤 POLIPONI CONCERT 2026</p>
 
+        <!-- COUNTDOWN -->
+        <div class="countdown" id="countdown">
+            ⏳ Menghitung waktu...
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p style="font-size:12px;margin-top:5px;color:#aaa;">
+            ⚠️ 70% Tiket Telah Terjual
+        </p>
+
         <button class="btn" onclick="buyTicket()">
             🎟 Beli Tiket Sekarang
         </button>
@@ -155,11 +190,35 @@ body{
 </div>
 
 <script>
+// REDIRECT
 function buyTicket(){
-    window.location.href = "https://jotri623.github.io/Sheila-On-7/";
+    window.location.href = "https://soekarnofestrun2026-rgb.github.io/Bali-United-training-center/";
+}
+
+// COUNTDOWN (SET DEADLINE DISINI)
+const deadline = new Date("June 30, 2026 23:59:59").getTime();
+
+setInterval(function(){
+    const now = new Date().getTime();
+    const distance = deadline - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance % (1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML =
+        "⏳ Batas beli: " + days + "h " + hours + "j " + minutes + "m " + seconds + "d";
+
+},1000);
+
+// PROGRESS ANIMATION
+window.onload = function(){
+    setTimeout(()=>{
+        document.getElementById("progressBar").style.width = "70%";
+    },500);
 }
 </script>
 
 </body>
 </html>
-
